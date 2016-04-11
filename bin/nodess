@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+/**
+ * Developer: BelirafoN
+ * Date: 07.04.2016
+ * Time: 13:08
+ */
+
+"use strict";
+
+process.title = 'nodess';
+
+const createStaticServer = require('../src/server');
+const path = require('path');
+const argv = require('./../src/helpers/cliArguments')(process.argv);
+
+argv.port = argv.port || argv.p || 3000;
+argv.public = argv.public || argv.d || path.join(__dirname, './public');
+argv.cors = argv.cors || false;
+argv.cache = argv.cache || false;
+argv.indexFile = argv.indexFile || null;
+argv.verbose = argv.verbose || false;
+
+createStaticServer(argv.public,{
+    cors: argv.cors,
+    cache: argv.cache,
+    indexFile: argv.indexFile,
+    verbose: argv.verbose
+})
+    .listen(argv.port, '127.0.0.1', () => {
+        console.log(`Server run and listen on ${argv.port} port.`);
+    });

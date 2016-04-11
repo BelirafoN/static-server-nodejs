@@ -1,0 +1,19 @@
+{
+  "name": "node-static-server-dependencies-free",
+  "version": "0.0.1",
+  "description": "static server for nodejs",
+  "main": "./src/server.js",
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node ./bin/nodess",
+    "test": "mocha ./tests"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
+  "author": "BelirafoN <belirafon@gmail.com>",
+  "license": "MIT"
+}
