@@ -6,7 +6,7 @@
 
 "use strict";
 
-const fileStat = require('../src/helpers/fileStat');
+const fileStat = require('../lib/helpers/fileStat');
 const path = require('path');
 const fs = require('fs');
 const asser = require('assert');

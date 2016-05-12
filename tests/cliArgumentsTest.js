@@ -6,7 +6,7 @@
 
 "use strict";
 
-const cliArguments = require('../src/helpers/cliArguments');
+const cliArguments = require('../lib/helpers/cliArguments');
 const assert = require('assert');
 
 describe('cliArguments internal logic', () => {

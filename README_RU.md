@@ -1,6 +1,10 @@
-## Simple Static Server for NodeJS 
+# Static Server for NodeJS
 
-### Возможности сервера 
+[![Build Status](https://travis-ci.org/BelirafoN/static-server-nodejs.svg?branch=master)](https://travis-ci.org/BelirafoN/static-server-nodejs)
+[![Code Climate](https://codeclimate.com/github/BelirafoN/static-server-nodejs/badges/gpa.svg)](https://codeclimate.com/github/BelirafoN/static-server-nodejs)
+[![npm version](https://badge.fury.io/js/static-server-nodejs.svg)](https://badge.fury.io/js/static-server-nodejs)
+
+## Возможности сервера 
 
 1. Не имеет npm-зависимостей;
 2. HTTP-методы: `GET`, `HEAD`, `OPTIONS`;
@@ -11,7 +15,7 @@
 6. Простой лог запросов в консоль
 7. Готов к запуску из коробки
 
-### CLI
+## CLI
 
 ```bash
 node ./bin/nodess
@@ -23,7 +27,7 @@ node ./bin/nodess
 npm start
 ```
 
-### Параметры и опции CLI
+## Параметры и опции CLI
 
 - `--port` или `-p` - порт. По умолчанию `3000`
 - `--public` или `-d` - публичный каталог сервера. По умолчанию `./public`
@@ -32,11 +36,11 @@ npm start
 - `--index-file` - имя индексного файла для каталогов. По умолчанию `index.html`.
 - `--verbose` - вывод лога запросов на консоль. По умолчанию `false`.
 
-### Пример использования в коде
+## Пример использования в коде
 ```js
+const createStaticServer = require('static-server-nodejs');
 const path = require('path');
-const createStaticServer = require('simple-node-static-server/server');
-const port = 3000;
+const PORT = 3000;
 
 let staticServer = createStaticServer(path.join(__dirname, './public'),{
     cors: true,
@@ -44,12 +48,12 @@ let staticServer = createStaticServer(path.join(__dirname, './public'),{
     indexFile: 'index.html',
     verbose: true
 })
-    .listen(port, '127.0.0.1', () => {
-        console.log(`Server run and listen on ${port} port.`);
+    .listen(PORT, '127.0.0.1', () => {
+        console.log(`Server run and listen on ${PORT} port.`);
     });
 ```
 
-### Что может появиться в будущем
+## Что может появиться в будущем
 
 - расширенная поддержка кэширования
 - поддержка gzip

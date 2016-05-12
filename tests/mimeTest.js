@@ -6,7 +6,7 @@
 
 "use strict";
 
-const mime = require('../src/helpers/mime');
+const mime = require('../lib/helpers/mime');
 const assert = require('assert');
 
 describe('MIME-type detector by file extension', () => {

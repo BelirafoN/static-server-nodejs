@@ -6,7 +6,7 @@
 
 "use strict";
 
-const createSever = require('../src/server');
+const createSever = require('../lib/server');
 const http = require('http');
 const path = require('path');
 const assert = require('assert');

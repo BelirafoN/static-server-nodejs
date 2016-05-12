@@ -1,19 +1,35 @@
 {
-  "name": "node-static-server-dependencies-free",
-  "version": "0.0.1",
-  "description": "static server for nodejs",
-  "main": "./src/server.js",
+  "name": "static-server-nodejs",
+  "version": "0.1.0",
+  "description": "Simple static server for Nodejs",
+  "main": "./lib/server.js",
+  "scripts": {
+    "start": "node ./bin/nodess",
+    "test": "mocha ./test",
+    "coverage": "istanbul cover _mocha -- -R spec"
+  },
   "directories": {
     "example": "examples",
     "test": "tests"
   },
-  "scripts": {
-    "start": "node ./bin/nodess",
-    "test": "mocha ./tests"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:BelirafoN/static-server-nodejs.git"
   },
+  "keywords": [
+    "simple",
+    "static",
+    "server"
+  ],
+  "author": {
+    "name": "Alex Voronysnaky",
+    "email": "belirafon@gmail.com"
+  },
+  "dependencies": {},
   "devDependencies": {
+    "coveralls": "^2.11.9",
+    "istanbul": "^0.4.3",
     "mocha": "^2.4.5"
   },
-  "author": "BelirafoN <belirafon@gmail.com>",
   "license": "MIT"
 }
