@@ -9,8 +9,8 @@
     "coverage": "istanbul cover _mocha -- -R spec"
   },
   "directories": {
-    "example": "examples",
-    "test": "tests"
+    "example": "./examples",
+    "test": "./test"
   },
   "repository": {
     "type": "git",
