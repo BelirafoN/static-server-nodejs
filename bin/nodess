@@ -10,15 +10,33 @@
 
 process.title = 'nodess';
 
-const createStaticServer = require('../src/server');
+const createStaticServer = require('../lib/server');
 const path = require('path');
-const argv = require('./../src/helpers/cliArguments')(process.argv);
+const argv = require('./../lib/helpers/cliArguments')(process.argv);
+const meta = require('../package.json');
+const DEFAULT_PORT = 300;
+const DEFAULT_PUBLIC_PATH = './public';
+const DEFAULT_INDEX_FILE_NAME = 'index.html';
 
-argv.port = argv.port || argv.p || 3000;
-argv.public = argv.public || argv.d || path.join(__dirname, './public');
+if(argv.help){
+    console.log(`-`.repeat(42));
+    console.log(`| Simple static server for NodeJS `.toUpperCase() + `v${meta.version} |`);
+    console.log(`-`.repeat(42));
+    console.log();
+    console.log(`* --port or -p - port for listen. Default is ${DEFAULT_PORT}`);
+    console.log(`* --public or -d - public directory. Default is '${DEFAULT_PUBLIC_PATH}'`);
+    console.log(`* --cors - enable CORS support. Default is 'false'`);
+    console.log(`* --cache - enable support simple cache with 'If-Modified-Since' header. Default is 'false'`);
+    console.log(`* --index-file - name of custom index-file. Default is '${DEFAULT_INDEX_FILE_NAME}'`);
+    console.log(`* --verbose - print request-log to console. Default is 'false'`);
+    return;
+}
+
+argv.port = argv.port || argv.p || DEFAULT_PORT;
+argv.public = argv.public || argv.d || path.join(__dirname, DEFAULT_PUBLIC_PATH);
 argv.cors = argv.cors || false;
 argv.cache = argv.cache || false;
-argv.indexFile = argv.indexFile || null;
+argv.indexFile = argv.indexFile || DEFAULT_INDEX_FILE_NAME;
 argv.verbose = argv.verbose || false;
 
 createStaticServer(argv.public,{
