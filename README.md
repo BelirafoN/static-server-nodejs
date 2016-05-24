@@ -29,10 +29,11 @@ npm start
 
 ## CLI Parameters & Options
 
-- `--port` or `-p` - port for listen. Default is `3000`
+- `--help` - show help information about cli-configuration.
+- `--port` or `-p` - port for listening. Default is `3000`
 - `--public` or `-d` - public directory. Default is `./public`
-- `--cors` - enable CORS support. Default is `false`
-- `--cache` - enable support simple cache with `If-Modified-Since` header. Default is `false`. 
+- `--cors` - CORS support. Default is `false`
+- `--cache-headers` - support simple cache with `If-Modified-Since` header. Default is `false`. 
 - `--index-file` - name of custom index-file. Default is `index.html`.
 - `--verbose` - print request-log to console. Default is `false`.
 
@@ -40,7 +41,7 @@ npm start
 ```js
 const createStaticServer = require('static-server-nodejs');
 const path = require('path');
-const PORT = 3000;
+const PORT = process.env.NODESS_PORT || 3000;
 
 let staticServer = createStaticServer(path.join(__dirname, './public'),{
     cors: true,

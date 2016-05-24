@@ -33,7 +33,7 @@ describe('Static server work test', () => {
         before(done => {
             server = createSever(serverPublicPath, {
                 cors: false,
-                cache: false,
+                cacheHeaders: false,
                 verbose: false
             }).listen(port, host, done);
         });
@@ -93,7 +93,7 @@ describe('Static server work test', () => {
         before(done => {
             server = createSever(serverPublicPath, {
                 cors: false,
-                cache: false,
+                cacheHeaders: false,
                 verbose: false
             }).listen(port, host, done);
         });
@@ -126,7 +126,7 @@ describe('Static server work test', () => {
         before(done => {
             server = createSever(serverPublicPath, {
                 cors: true,
-                cache: false,
+                cacheHeaders: false,
                 verbose: false,
                 headers: {
                     'X-Test': 'test'
@@ -203,7 +203,7 @@ describe('Static server work test', () => {
             before(done => {
                 server = createSever(serverPublicPath, {
                     cors: false,
-                    cache: false,
+                    cacheHeaders: false,
                     verbose: false
                 }).listen(port, host, done);
             });
@@ -231,7 +231,7 @@ describe('Static server work test', () => {
             before(done => {
                 server = createSever(serverPublicPath, {
                     cors: true,
-                    cache: false,
+                    cacheHeaders: false,
                     verbose: false
                 }).listen(port, host, done);
             });
@@ -255,13 +255,13 @@ describe('Static server work test', () => {
         });
     });
 
-    describe('Cache support', () => {
+    describe('Cache headers support', () => {
 
         describe('Disables cache headers', () => {
 
             before(done => {
                 server = createSever(serverPublicPath, {
-                    cache: false,
+                    cacheHeaders: false,
                     verbose: false
                 }).listen(port, host, done);
             });
@@ -284,7 +284,7 @@ describe('Static server work test', () => {
         describe('Enable cache headers', () => {
             before(done => {
                 server = createSever(serverPublicPath, {
-                    cache: true,
+                    cacheHeaders: true,
                     verbose: false
                 }).listen(port, host, done);
             });

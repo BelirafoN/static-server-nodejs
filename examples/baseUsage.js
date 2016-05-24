@@ -8,7 +8,7 @@
 
 const createStaticServer = require('static-server-nodejs');
 const path = require('path');
-const PORT = 3000;
+const PORT = process.env.NODESS_PORT || 3000;
 
 createStaticServer(path.join(__dirname, './public'))
     .listen(PORT, '127.0.0.1', () => {
